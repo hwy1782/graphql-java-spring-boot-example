@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoGraphQlApplicationTests {
+public class GraphQlApplicationTests {
 
 	@Test
 	public void contextLoads() {

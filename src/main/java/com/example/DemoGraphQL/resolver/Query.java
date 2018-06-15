@@ -5,12 +5,16 @@ import com.example.DemoGraphQL.model.Author;
 import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public class Query implements GraphQLQueryResolver {
     private BookRepository bookRepository;
     private AuthorRepository authorRepository;
+
+
 
     public Query(AuthorRepository authorRepository, BookRepository bookRepository) {
         this.authorRepository = authorRepository;
@@ -27,6 +31,11 @@ public class Query implements GraphQLQueryResolver {
 
     public List<Author> findAuthorsByFirstName(String firstName) {
         return authorRepository.findByFirstNameContains(firstName);
+    }
+
+    public List<Author> findAuthorsByPage(int pageNo, int pageSize) {
+        Pageable pageable = new PageRequest(pageNo, pageSize);
+        return authorRepository.findAll(pageable).getContent();
     }
 
     public long countBooks() {

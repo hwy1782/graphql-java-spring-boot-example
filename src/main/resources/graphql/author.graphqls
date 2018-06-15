@@ -8,6 +8,7 @@ type Query {
     findAllAuthors: [Author]!
     countAuthors: Long!
     findAuthorsByFirstName(fistName:String!):[Author]
+    findAuthorsByPage(pageNo:Long!,pageSiz:Long!):[Author]
 }
 
 type Mutation {

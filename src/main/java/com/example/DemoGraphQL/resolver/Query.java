@@ -6,6 +6,8 @@ import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
 
+import java.util.List;
+
 public class Query implements GraphQLQueryResolver {
     private BookRepository bookRepository;
     private AuthorRepository authorRepository;
@@ -23,9 +25,15 @@ public class Query implements GraphQLQueryResolver {
         return authorRepository.findAll();
     }
 
+    public List<Author> findAuthorsByFirstName(String firstName) {
+        List<Author> result = authorRepository.findByFirstNameContains(firstName);
+        return result;
+    }
+
     public long countBooks() {
         return bookRepository.count();
     }
+
     public long countAuthors() {
         return authorRepository.count();
     }

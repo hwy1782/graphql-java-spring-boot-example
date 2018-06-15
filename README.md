@@ -1,4 +1,4 @@
-# graphql-java-spring-boot
+# spring-boot / Graphql
 
 
 fork自 [Sample app for my tutorial](https://github.com/eh3rrera/graphql-java-spring-boot-example)

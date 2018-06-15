@@ -26,8 +26,7 @@ public class Query implements GraphQLQueryResolver {
     }
 
     public List<Author> findAuthorsByFirstName(String firstName) {
-        List<Author> result = authorRepository.findByFirstNameContains(firstName);
-        return result;
+        return authorRepository.findByFirstNameContains(firstName);
     }
 
     public long countBooks() {
